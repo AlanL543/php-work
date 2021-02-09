@@ -1,4 +1,10 @@
-<!DOCTYPE html>
+<?php
+session_start();
+if (isset($_COOKIE["nom"])){
+	header('Location: /recoAuto.php');
+	exit();
+}
+ ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,7 +12,12 @@
 	<title><?=$title?></title>
 </head>
 <body>
-<label>Nom : </label>
-<input type="text" name="nom" placeholder="Saisissez votre nom">
+	<form method="POST" action="resultats.php">
+<label for="nom">Nom : </label>
+<input id="nom" type="text" name="nom" placeholder="Saisissez votre nom">
+<label for="reco">Reconnexion automatique : </label>
+<input name="reco" type="checkbox" checked>
+<input type="submit" value="Connexion">
+	</form>
 </body>
 </html>
